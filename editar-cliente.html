@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,400;0,900;1,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/app.css">
+    <title>Document</title>
+</head>
+<body class="body-formulario">   
+    <main class="contenedor contenedor-principal">
+        <header class=" header-formulario">
+            <h1>Administrador de alumnos </h1>
+            <nav class="navegacion">
+                <a class="boton" href="/">Alumnos</a>
+                <a class="boton" href="nuevoalumno.html">Nuevo Alumno</a>
+            </nav>
+        </header> 
+
+        <div class="contenedor-formulario">
+            <div class="titulo-formulario">
+                <h2>Rellena el formulario para agregar un nuevo registro</h2>
+                <a class="boton" href="/">Volver</a>
+            </div>
+            <div class="mensaje">
+                
+            </div>
+            <form class="formulario" action="">
+
+                <div>
+                    <label for="nombre">Nombre:</label>
+                    <input id="nombre" type="text" placeholder="Nombre">
+                </div>
+                
+                <div>
+                    <label for="apellido">Apellido:</label>
+                    <input id="apellido" type="text" placeholder="Apellido">
+                </div>
+                
+                <div>
+                    <label for="documento">Documento:</label>
+                    <input id="documento" type="number" placeholder="Documento">
+                </div>
+                
+                <div>
+                    <label for="padre">Padre o Tutor:</label>
+                    <input id="padre" type="text" placeholder="Padre o tutor">
+                </div>
+                
+                <div>
+                    <label for="telefono">Telefono:</label>
+                    <input id="telefono" type="number" placeholder="Telefono">
+                </div>
+
+                <div class="aling-rigth">
+                    <input class="boton" type="submit" value="Guardar">
+                </div>
+                
+             
+            </form>
+        </div>
+       
+    </main>
+    
+     <script src="js/editarCliente.js" type="module"></script>
+</body>
+</html>
