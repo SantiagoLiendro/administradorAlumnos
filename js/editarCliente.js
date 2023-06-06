@@ -20,13 +20,14 @@ import { limpiarHTML } from "./utilidades.js";
     const padreAlumno =  document.querySelector('#padre');
     const documentoAlumno =  document.querySelector('#documento');
     const telefonoAlumno =  document.querySelector('#telefono');
+    const parametrosURL = new URLSearchParams(window.location.search);
+    const idAlumnos =parametrosURL.get('id')
 
     document.addEventListener('DOMContentLoaded', ()=> {
 
         //Verificar el ID de la URL
 
-        const parametrosURL = new URLSearchParams(window.location.search);
-        const idAlumnos =parametrosURL.get('id')
+        
 
         
         formulario.addEventListener('submit',leerFormulario)
@@ -92,12 +93,21 @@ import { limpiarHTML } from "./utilidades.js";
             objtAlumnoEditado.telefono=telefono;
             
         })
+        // alumnos.filter(alumno => alumno.id === idAlumnos)
+        // .forEach(alumno=> {
+        //     const {nombre,apellido,padre,telefono,documento} = objtAlumnoEditado
+        //     alumno.nombre =nombre
+        //     alumno.apellido = apellido
+        //     alumno.padre = padre
+        //     alumno.telefono = telefono
+        //     alumno.documento = documento
+        // })
     
     }
-    // function agregarLocalStorage(alumno) {
-            
-    // }
-    
+   
+
+        console.log(alumnos)
+
     function leerFormulario(e) {
         e.preventDefault()
 
@@ -110,19 +120,19 @@ import { limpiarHTML } from "./utilidades.js";
         imprimirMensaje("Guardado Correctamnete")
 
         formulario.reset()
-        agregarlocalStorage = [objtAlumnoEditado,...agregarlocalStorage]
+        agregarlocalStorage = [...agregarlocalStorage,objtAlumnoEditado]
 
         
 
         arregloAlumnoNoEditados.forEach(alumno=> {
-            agregarlocalStorage = [alumno,...agregarlocalStorage]
+            agregarlocalStorage = [...agregarlocalStorage,alumno]
         })
 
         localStorage.setItem('alumnos',JSON.stringify(agregarlocalStorage))
 
-        setTimeout(()=>{
-            window.location.href="/";
-        },2000)
+        // setTimeout(()=>{
+        //     window.location.href="/";
+        // },2000)
 
         
         console.log(agregarlocalStorage)

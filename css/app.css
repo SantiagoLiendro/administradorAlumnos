@@ -95,6 +95,10 @@ a {
     margin-top: 3rem;
 }
 
+thead tr th {
+    margin-bottom: 4rem;
+}
+
 .heading-tabla {
     text-align: center;
     margin: 2.5rem 0;

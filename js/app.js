@@ -4,23 +4,22 @@ import { limpiarHTML } from "./utilidades.js";
 
 (function () {
     let alumnosLocalStorage = [];
-
-
     const tablaBody = document.querySelector('.tabla-body')
     const headingTabla = document.querySelector('.heading-tabla')
     const listaAlumnos = JSON.parse(localStorage.getItem('alumnos'))
 
     document.addEventListener('DOMContentLoaded', () => {
-        listarAlumnos()
+        
+        listarAlumnos(listaAlumnos)
     })
     console.log(listaAlumnos.length)
 
 
-    function listarAlumnos() {
+    function listarAlumnos(alumnos) {
         limpiarHTML(tablaBody)
 
 
-        listaAlumnos.forEach(alumno => {
+        alumnos.forEach(alumno => {
 
             const { nombre, apellido, documento, padre, telefono, id } = alumno;
 
@@ -67,9 +66,11 @@ import { limpiarHTML } from "./utilidades.js";
 
             contenedorTabla.classList.add('tabla-body_contenido')
 
-
-            headingTabla.textContent = "Lista de alumnos";
-
+            if(alumnos.length > 0) {
+                headingTabla.textContent = "Lista de alumnos";
+            }
+            
+            console.log(alumnos.length)
             nombreParrafo.textContent = nombre
             nombreTabla.appendChild(nombreParrafo)
 
@@ -110,9 +111,7 @@ import { limpiarHTML } from "./utilidades.js";
 
         alumnosLocalStorage = listaAlumnos.filter(alumnos => alumnos.id !== id)
         localStorage.setItem('alumnos', JSON.stringify(alumnosLocalStorage))
-        listarAlumnos()
-
-
+        listarAlumnos(alumnosLocalStorage)
 
         console.log(alumnosLocalStorage)
     }
